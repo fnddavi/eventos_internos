@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block titulo %}Eventos Internos{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topo">
+  <h1>Eventos Internos</h1>
+  <nav>
+    <a href="{{ url_for('index') }}">Enviar arquivos</a>
+    <a href="{{ url_for('galeria') }}">Galeria</a>
+  </nav>
+</header>
+
+<main>
+  {% with mensagens = get_flashed_messages(with_categories=true) %}
+    {% if mensagens %}
+      <div class="mensagens">
+        {% for categoria, msg in mensagens %}
+          <p class="msg {{ categoria }}">{{ msg }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  {% block conteudo %}{% endblock %}
+</main>
+</body>
+</html>

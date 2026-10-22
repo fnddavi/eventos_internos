@@ -1,0 +1,127 @@
+:root {
+  --cor-fundo: #f4f6f8;
+  --cor-card: #ffffff;
+  --cor-primaria: #2563eb;
+  --cor-primaria-hover: #1d4ed8;
+  --cor-texto: #1f2937;
+  --cor-borda: #e2e8f0;
+  --cor-sucesso: #16a34a;
+  --cor-erro: #dc2626;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+.topo {
+  background: var(--cor-card);
+  border-bottom: 1px solid var(--cor-borda);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.topo h1 { font-size: 1.25rem; margin: 0; }
+
+.topo nav a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: 600;
+}
+
+.topo nav a:hover { text-decoration: underline; }
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.card {
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.campo {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label { font-weight: 600; font-size: 0.9rem; }
+
+.campo input {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  background: var(--cor-primaria);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover { background: var(--cor-primaria-hover); }
+
+.mensagens { margin-bottom: 1rem; }
+
+.msg {
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.msg.sucesso { background: #dcfce7; color: var(--cor-sucesso); }
+.msg.erro { background: #fee2e2; color: var(--cor-erro); }
+
+.grupo-data { margin-bottom: 2rem; }
+.grupo-data h2 {
+  border-bottom: 2px solid var(--cor-primaria);
+  padding-bottom: 0.4rem;
+}
+
+.evento {
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.info-evento { margin: 0 0 0.75rem 0; color: #475569; }
+
+.galeria-arquivos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.galeria-arquivos img,
+.galeria-arquivos video {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #000;
+}
+
+.vazio { color: #64748b; font-style: italic; }

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block titulo %}Galeria - Eventos Internos{% endblock %}
+{% block conteudo %}
+{% if not datas_ordenadas %}
+  <p class="vazio">Nenhum evento enviado ainda.</p>
+{% endif %}
+
+{% for data in datas_ordenadas %}
+  <section class="grupo-data">
+    <h2>{{ data }}</h2>
+    {% for evento in eventos_por_data[data] %}
+      <div class="evento">
+        <p class="info-evento">
+          <strong>Local:</strong> {{ evento.local }}
+          {% if evento.hora %} • <strong>Hora:</strong> {{ evento.hora }}{% endif %}
+        </p>
+        <div class="galeria-arquivos">
+          {% for arquivo in evento.arquivos %}
+            {% if arquivo.tipo == "imagem" %}
+              <img src="{{ url_for('servir_arquivo', data=evento.data, nome_arquivo=arquivo.nome) }}" alt="Foto do evento" loading="lazy">
+            {% elif arquivo.tipo == "video" %}
+              <video controls preload="metadata" src="{{ url_for('servir_arquivo', data=evento.data, nome_arquivo=arquivo.nome) }}"></video>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+{% endfor %}
+{% endblock %}

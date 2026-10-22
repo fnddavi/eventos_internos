@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block titulo %}Enviar arquivos - Eventos Internos{% endblock %}
+{% block conteudo %}
+<section class="card">
+  <h2>Enviar fotos e vídeos do evento</h2>
+  <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+    <div class="campo">
+      <label for="data">Data do evento</label>
+      <input type="date" id="data" name="data" required>
+    </div>
+
+    <div class="campo">
+      <label for="hora">Horário</label>
+      <input type="time" id="hora" name="hora">
+    </div>
+
+    <div class="campo">
+      <label for="local">Local</label>
+      <input type="text" id="local" name="local" placeholder="Ex: Auditório principal" required>
+    </div>
+
+    <div class="campo">
+      <label for="arquivos">Imagens e vídeos</label>
+      <input type="file" id="arquivos" name="arquivos" accept="image/*,video/*" multiple required>
+    </div>
+
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block titulo %}Erro {{ codigo }} - Eventos Internos{% endblock %}
+{% block conteudo %}
+<section class="card erro-card">
+  <h2>{{ titulo }}</h2>
+  <p>{{ mensagem }}</p>
+  <p class="acoes-erro">
+    <a class="botao-link" href="{{ url_for('index') }}">Voltar para envio</a>
+    <a class="link-secundario" href="{{ url_for('galeria') }}">Abrir galeria</a>
+  </p>
+</section>
+{% endblock %}

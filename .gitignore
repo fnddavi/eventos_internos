@@ -2,9 +2,16 @@
 .venv/
 venv/
 
-# Cache do Python
+# Cache do Python e testes
 __pycache__/
 *.py[cod]
+.pytest_cache/
 
-# Arquivos de upload do usuário
+# Dados locais de execução e uploads
 uploads/
+eventos.json
+.eventos.lock
+
+# Arquivos de ambiente com segredos
+*.env
+!deploy/*.env.example

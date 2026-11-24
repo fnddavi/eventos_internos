@@ -1,0 +1,18 @@
+[Unit]
+Description=Backup local dos dados do Eventos Internos
+
+[Service]
+Type=oneshot
+User=eventos
+Group=eventos
+EnvironmentFile=/etc/eventos-internos/eventos-internos.env
+ExecStart=/opt/eventos_internos/deploy/backup.sh
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/eventos-internos /var/backups/eventos-internos
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=eventos-internos-backup
